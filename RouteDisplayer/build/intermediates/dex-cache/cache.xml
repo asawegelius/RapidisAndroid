@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\pre-dexed\debug\classes-eaa1de4ae3edd90a56eb8e2350b12363220be810.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\exploded-aar\com.esri.arcgis.android\arcgis-android\10.2.5\libs\jackson-mapper-1.9.5.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ffbb48e87fa5e9107c17aaa0616f724d785a4d71">
+        <dex dex="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\pre-dexed\debug\jackson-mapper-1.9.5-067128a4b78b605e1573c97877046feaf59bf97e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\exploded-aar\com.esri.arcgis.android\arcgis-android\10.2.5\libs\arcgis-android-app-toolkit.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3244230646d35497f07922233935e7aa8d465b10">
+        <dex dex="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\pre-dexed\debug\arcgis-android-app-toolkit-45c20c46f5f1bfecc7939e7ea3e193db8cd05fa6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\pre-dexed\debug\classes-0fb05a03b2dda768653215ab64e6f9c0b2c2a78f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\exploded-aar\com.esri.arcgis.android\arcgis-android\10.2.5\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e10d2c7d375690a30c933e9983eab44c9db0e8d9">
+        <dex dex="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\pre-dexed\debug\classes-43664b75542e1cfb6039af54f26abf7c847331f1.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\exploded-aar\com.esri.arcgis.android\arcgis-android\10.2.5\libs\arcgis-android-api.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="74ad2535c53e4706c2471b8a8aae3b31517a34e0">
+        <dex dex="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\pre-dexed\debug\arcgis-android-api-2af4a9682d035d47e2197a9dd35c822c39021f9d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\exploded-aar\com.esri.arcgis.android\arcgis-android\10.2.5\libs\jcifs-1.3.17.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="60e3805e7bcfe96bf1f1907b821d251cc9d789ec">
+        <dex dex="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\pre-dexed\debug\jcifs-1.3.17-34e4725d3c5f48a5b734f0cd55efa6cfb7e73ae1.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asa\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-c61f534cc1bb7c5e1be1513e2c1d850a9885c246.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\exploded-aar\com.esri.arcgis.android\arcgis-android\10.2.5\libs\jackson-core-1.9.5.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="75ac72d19377a95225217cb4fdfa1290f3c81145">
+        <dex dex="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\pre-dexed\debug\jackson-core-1.9.5-a1172e297db79aead9116a4b024497b8b3dd987e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\Asa\Documents\GitHub\RapidisAndroid\RouteDisplayer\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-96d95afbeb2299442b1dd87749367e3ebc38f2bc.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageButton
+        android:id="@+id/row_upload_route"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10.0dip"
+        android:src="@drawable/ic_upload"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:onClick="uploadVisitedOnClickHandler"
+        android:contentDescription="@string/empty_string" />
+
+    <TextView
+        android:textSize="16.0sp"
+        android:textColor="@color/dark_grey"
+        android:id="@+id/row_route_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="23.0dip"
+        android:layout_toLeftOf="@id/row_upload_route"
+        android:layout_alignBottom="@id/row_upload_route"
+        android:layout_alignParentLeft="true" />
+
+</RelativeLayout><!-- From: file:/C:/Users/Asa/Documents/GitHub/RapidisAndroid/RouteDisplayer/app/src/main/res/layout/route_list_item_layout.xml -->

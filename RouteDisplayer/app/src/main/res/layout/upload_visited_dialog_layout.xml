@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:background="@drawable/btn_style_roundcorner"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:textSize="20.0dip"
+        android:textColor="@color/dark_grey"
+        android:id="@+id/dialog_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10.0dip"
+        android:text="@string/confirm_question" />
+    <LinearLayout
+        android:layout_gravity="left"
+        android:orientation="vertical"
+        android:layout_width="300.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20.0dip">
+        <EditText
+            android:textSize="20.0dip"
+            android:id="@+id/dialog_username"
+            android:background="@drawable/rectangle_round_corners"
+            android:padding="4.0pt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10.0dip"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="5.0dip"
+            android:hint="@string/user_name" />
+        <EditText
+            android:textSize="20.0dip"
+            android:id="@+id/dialog_password"
+            android:background="@drawable/rectangle_round_corners"
+            android:padding="4.0pt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10.0dip"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="5.0dip"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="300.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20.0dip">
+        <Button
+            android:textSize="20.0dip"
+            android:textColor="@color/blue"
+            android:id="@+id/btnYes"
+            android:background="@null"
+            android:layout_width="145.0dip"
+            android:layout_height="wrap_content"
+            android:layout_margin="10.0dip"
+            android:text="@string/upload" />
+        <Button
+            android:textSize="20.0dip"
+            android:textColor="@color/blue"
+            android:id="@+id/btnNo"
+            android:background="@null"
+            android:layout_width="145.0dip"
+            android:layout_height="wrap_content"
+            android:layout_margin="10.0dip"
+            android:text="@string/cancel" />
+    </LinearLayout>
+</LinearLayout>

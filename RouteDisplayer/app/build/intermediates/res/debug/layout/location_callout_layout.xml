@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageButton
+        android:id="@+id/callout_image"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_info" />
+    <TextView android:textSize="16.0dip"
+        android:textColor="@color/dark_grey"
+        android:id="@+id/callout_title"
+        android:paddingBottom="5.0dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/callout_image" />
+    <TextView android:textSize="14.0dip"
+        android:textColor="@color/dark_grey"
+        android:id="@+id/callout_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/callout_image"
+        android:layout_below="@id/callout_title" />
+</RelativeLayout><!-- From: file:/C:/Users/Asa/Documents/GitHub/RapidisAndroid/RouteDisplayer/app/src/main/res/layout/location_callout_layout.xml -->

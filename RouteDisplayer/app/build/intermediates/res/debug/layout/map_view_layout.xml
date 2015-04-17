@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.esri.android.map.MapView android:id="@+id/map"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/stop"
+        mapoptions.MapType="Streets" />
+</LinearLayout><!-- From: file:/C:/Users/Asa/Documents/GitHub/RapidisAndroid/RouteDisplayer/app/src/main/res/layout/map_view_layout.xml -->

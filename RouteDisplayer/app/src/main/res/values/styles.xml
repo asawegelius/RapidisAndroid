@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:dialogLayout">@style/dialog</item>
+    </style>
+
+
+
+    <style name="CustomDialogTheme" parent="@android:style/Theme.Holo.Dialog">
+        <item name="android:fullDark">@color/orange</item>
+        <item name="android:topDark">@color/blue</item>
+        <item name="android:centerDark">@color/orange</item>
+        <item name="android:bottomDark">@color/orange</item>
+        <item name="android:fullBright">@color/orange</item>
+        <item name="android:topBright">@color/blue</item>
+        <item name="android:centerBright">@color/orange</item>
+        <item name="android:bottomBright">@color/orange</item>
+        <item name="android:bottomMedium">@color/orange</item>
+        <item name="android:centerMedium">@color/orange</item>
+    </style>
+
+
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>

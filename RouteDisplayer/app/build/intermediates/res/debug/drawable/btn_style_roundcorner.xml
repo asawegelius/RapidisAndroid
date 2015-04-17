@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="12.0dip" />
+    <solid android:color="@color/white" />
+</shape><!-- From: file:/C:/Users/Asa/Documents/GitHub/RapidisAndroid/RouteDisplayer/app/src/main/res/drawable/btn_style_roundcorner.xml -->

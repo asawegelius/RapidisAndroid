@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="40.0dip" android:layout_marginRight="40.0dip"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:textSize="15.0dip"
+        android:textColor="@color/dark_grey"
+        android:layout_gravity="center"
+        android:id = "@+id/status_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20.0dip"
+        android:text=" " />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <ImageView
+            android:id = "@+id/ic_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_name_blue" />
+        <EditText
+            android:textColor="@color/dark_grey"
+            android:id="@+id/get_route_name"
+            android:background="@drawable/rectangle_round_corners"
+            android:padding="4.0pt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/user_name"
+            android:singleLine="true"
+            android:imeOptions="actionDone" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <ImageView
+            android:id="@+id/ic_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_password_blue" />
+        <EditText
+            android:textColor="@color/dark_grey"
+            android:id="@+id/get_route_password"
+            android:background="@drawable/rectangle_round_corners"
+            android:padding="4.0pt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <ImageView
+            android:id="@+id/ic_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_id_blue" />
+        <EditText android:textColor="@color/dark_grey"
+            android:id="@+id/get_route_id"
+            android:background="@drawable/rectangle_round_corners"
+            android:padding="4.0pt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/route_id"
+            android:singleLine="true"
+            android:imeOptions="actionDone" />
+    </LinearLayout>
+    <ProgressBar
+        android:layout_gravity="center"
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30.0dip"
+        style="?android:attr/progressBarStyleSmall" />
+</LinearLayout><!-- From: file:/C:/Users/Asa/Documents/GitHub/RapidisAndroid/RouteDisplayer/app/src/main/res/layout/get_route_layout.xml -->
