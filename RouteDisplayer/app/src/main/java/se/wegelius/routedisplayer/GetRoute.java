@@ -2,7 +2,6 @@ package se.wegelius.routedisplayer;
 
 import android.content.Context;
 import android.graphics.PorterDuff;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
@@ -27,9 +26,13 @@ import com.esri.core.tasks.ags.geoprocessing.Geoprocessor;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    Gets the route from an ArcGIS rest service
+ */
 public class GetRoute
         extends Fragment
 {
+    // the url to the ArcGIS service to fetch a route and its stops
     private String URL = "http://logistics-test.rapidis.com:6080/arcgis/rest/services/SecureRlpAppGetRoute/GPServer/RlpAppGetRoute";
     private Handler handler;
     private EditText id = null;
@@ -52,6 +55,7 @@ public class GetRoute
         }
     }
 
+    // creates the view and initiates the fields
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View localView = inflater.inflate(R.layout.get_route_layout, container, false);
@@ -113,14 +117,17 @@ public class GetRoute
         return localView;
     }
 
-    public void sendJob(String paramString1, String paramString2, long paramLong)
+    /*
+        Prepares the job parameters and the geoprocessor
+     */
+    public void sendJob(String username, String password, long id)
             throws Exception
     {
         UserCredentials localUserCredentials = new UserCredentials();
-        localUserCredentials.setUserAccount(paramString1, paramString2);
+        localUserCredentials.setUserAccount(username, password);
         ArrayList paramList = new ArrayList();
         GPLong vehicleID = new GPLong("VehicleID");
-        vehicleID.setValue(paramLong);
+        vehicleID.setValue(id);
         GPLong calculationID = new GPLong("CalculationID");
         calculationID.setValue(0L);
         paramList.add(vehicleID);
@@ -134,7 +141,12 @@ public class GetRoute
         submitJobAndPolling(geoprocessor, paramList);
     }
 
-    void submitJobAndPolling(final Geoprocessor gpTask,
+
+    /*
+        Submits the job and polls, adds the route and routeElements to the singleton Routes if the request
+        is a success.
+     */
+    public void submitJobAndPolling(final Geoprocessor gpTask,
                              List<GPParameter> params) {
         try {
             GPJobResource gpJobResource = gpTask.submitJob(params);
@@ -200,7 +212,6 @@ public class GetRoute
 
                             if (jobComplete) {
                                 if (jobStatus == GPJobResource.JobStatus.SUCCEEDED) {
-                                    System.out.println("GP succeded");
                                     GPJobParameter[] arrayOfGPJobParameter = jobResource.getOutputParameters();
                                     GPParameter localGPParameter1 = gpTask.getResultData(jobid, arrayOfGPJobParameter[0].getParamName());
                                     GPParameter localGPParameter2 = gpTask.getResultData(jobid, arrayOfGPJobParameter[1].getParamName());
@@ -213,12 +224,7 @@ public class GetRoute
                                         return;
                                     }
 
-
-
-                                }else {
-                                    System.out.println("GP failed");
                                 }
-
 
                             } else {
                                 handler.postDelayed(this, 5000);
@@ -242,6 +248,10 @@ public class GetRoute
 
     }
 
+    /*
+        Validates the username, password and id fields to see if they are
+        completed correctly.
+     */
     public boolean validateAllFields()
     {
         if (!Validation.validName(this.userName.getText().toString()))
@@ -274,6 +284,10 @@ public class GetRoute
         return true;
     }
 
+    /*
+        Checks every time focus changes to a new field to see if all fields are completed.
+        Starts a job if that is the case.
+     */
     private class FocusListener
             implements View.OnFocusChangeListener {
         private FocusListener() {

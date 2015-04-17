@@ -1,12 +1,15 @@
 package se.wegelius.routedisplayer;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/*
+    Shows a list of the stops with an upload button for each (to upload a timestamp when arrived).
+    The RouteListAdapter is the list adapter
+ */
 public class RouteListFragment
         extends ListFragment
 {

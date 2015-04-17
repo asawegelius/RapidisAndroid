@@ -1,30 +1,24 @@
 package se.wegelius.routedisplayer;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.location.Location;
 import android.location.LocationListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.esri.android.map.Callout;
 import com.esri.android.map.GraphicsLayer;
 import com.esri.android.map.LocationDisplayManager;
-import com.esri.android.map.LocationDisplayManager.AutoPanMode;
 import com.esri.android.map.MapView;
 import com.esri.android.map.event.OnSingleTapListener;
 import com.esri.android.map.event.OnStatusChangedListener;
-import com.esri.android.map.event.OnStatusChangedListener.STATUS;
 import com.esri.core.geometry.Envelope;
 import com.esri.core.geometry.Geometry;
-import com.esri.core.geometry.Geometry.Type;
 import com.esri.core.geometry.GeometryEngine;
 import com.esri.core.geometry.Point;
 import com.esri.core.geometry.Polyline;
@@ -35,15 +29,16 @@ import com.esri.core.symbol.CompositeSymbol;
 import com.esri.core.symbol.FontWeight;
 import com.esri.core.symbol.PictureMarkerSymbol;
 import com.esri.core.symbol.SimpleLineSymbol;
-import com.esri.core.symbol.SimpleLineSymbol.STYLE;
 import com.esri.core.symbol.TextSymbol;
-import com.esri.core.symbol.TextSymbol.HorizontalAlignment;
-import com.esri.core.symbol.TextSymbol.VerticalAlignment;
 import com.esri.core.tasks.ags.geoprocessing.GPFeatureRecordSetLayer;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/*
+    Displays a map at the current location if no route is downloaded. Otherwise it shows the route with
+    the stops. Displays a callout if a stop is touched and starts a gps if the i button on the callout is
+    touched.
+ */
 public class MapViewFragment
         extends Fragment
 {
@@ -54,6 +49,9 @@ public class MapViewFragment
     private MapView mapView;
     private GraphicsLayer myGraphicsLayer;
 
+    /*
+        Displays the route if there are one. Removes the old one first if the route have changed.
+     */
     public void displayDirections()
     {
         this.myGraphicsLayer.removeAll();
@@ -78,7 +76,6 @@ public class MapViewFragment
                 this.geometry = localPolyline;
             }
             ArrayList graphics = routeElements.getGraphics();
-            System.out.println(graphics.size());
             for (int i = -1 + graphics.size(); i >= 0; i--)
             {
                 PictureMarkerSymbol pictureMarkerSymbol = new PictureMarkerSymbol(getActivity(), getResources().getDrawable(R.drawable.ic_map_pin));
@@ -102,12 +99,15 @@ public class MapViewFragment
         }
     }
 
-    public void launchGps(Graphic paramGraphic)
+    /*
+        Launch googles gps and shows a route from current location to the selected one one.
+     */
+    public void launchGps(Graphic stop)
     {
-        Location localLocation = this.locationDisplayManager.getLocation();
+        Location departureLocation = this.locationDisplayManager.getLocation();
         new GeometryEngine();
-        Point localPoint = (Point)GeometryEngine.project(paramGraphic.getGeometry(), this.mapView.getSpatialReference(), SpatialReference.create(4326));
-        Intent localIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://maps.google.com/maps?saddr=" + localLocation.getLatitude() + "," + localLocation.getLongitude() + "&daddr=" + localPoint.getY() + "," + localPoint.getX() + "&mode=driving"));
+        Point arrivalPoint = (Point)GeometryEngine.project(stop.getGeometry(), this.mapView.getSpatialReference(), SpatialReference.create(4326));
+        Intent localIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://maps.google.com/maps?saddr=" + departureLocation.getLatitude() + "," + departureLocation.getLongitude() + "&daddr=" + arrivalPoint.getY() + "," + arrivalPoint.getX() + "&mode=driving"));
         localIntent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
         startActivity(localIntent);
     }
@@ -121,16 +121,19 @@ public class MapViewFragment
         // checks if the map is instantiated. When it is sets the maps spatial reference and the route if it is uploaded
         this.mapView.setOnStatusChangedListener(new OnStatusChangedListener() {
             private static final long serialVersionUID = 1L;
-
             public void onStatusChanged(Object source, STATUS status) {
                 if (OnStatusChangedListener.STATUS.INITIALIZED == status && source == MapViewFragment.this.mapView) {
                     mapSpatialReference = MapViewFragment.this.mapView.getSpatialReference();
+                    // zoom in to the route if there are one
                     if (MapViewFragment.this.geometry != null) {
                         MapViewFragment.this.mapView.setExtent(MapViewFragment.this.geometry, 50);
                     }
                 }
             }
         });
+        /*
+            Listens if a stop is tapped, shows a callout if so.
+         */
         this.mapView.setOnSingleTapListener(new OnSingleTapListener()
         {
             private static final long serialVersionUID = 1L;
@@ -219,7 +222,11 @@ public class MapViewFragment
         displayDirections();
     }
 
-    public void updateContent(String title, String description, final Graphic paramGraphic)
+    /*
+        Updates the view for the callout to show information about the selected stop and sets the onClickListener to
+        call the launchGps with the correct stop
+     */
+    public void updateContent(String title, String description, final Graphic stop)
     {
         if (this.calloutView == null) {
             return;
@@ -232,7 +239,7 @@ public class MapViewFragment
         {
             public void onClick(View paramAnonymousView)
             {
-                MapViewFragment.this.launchGps(paramGraphic);
+                MapViewFragment.this.launchGps(stop);
             }
         });
     }

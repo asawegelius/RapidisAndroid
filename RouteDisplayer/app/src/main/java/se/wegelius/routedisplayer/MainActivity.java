@@ -4,30 +4,29 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 import com.esri.core.io.UserCredentials;
 import com.esri.core.map.Graphic;
-import com.esri.core.tasks.ags.geoprocessing.GPFeatureRecordSetLayer;
 import com.esri.core.tasks.ags.geoprocessing.GPJobResource;
-import com.esri.core.tasks.ags.geoprocessing.GPJobResource.JobStatus;
 import com.esri.core.tasks.ags.geoprocessing.GPLong;
 import com.esri.core.tasks.ags.geoprocessing.GPParameter;
 import com.esri.core.tasks.ags.geoprocessing.Geoprocessor;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    The main activity. Sets up the tabs and content when created. Also handles the upload timestamp job
+    that initiates in the list view
+ */
 public class MainActivity
         extends FragmentActivity
         implements UploadVisitedDialogFragment.UploadVisitedDialogListener
 {
+    // the url to the ArcGIs rest service for uploading a timestamp (when visiting a route stop)
     private String URL = "http://logistics-test.rapidis.com:6080/arcgis/rest/services/RlpAppSendStatus/GPServer/RlpAppSendStatus";
     private FragmentTabHost mTabHost;
     private Handler handler;
@@ -52,6 +51,9 @@ public class MainActivity
         this.mTabHost.addTab(this.mTabHost.newTabSpec("tab3").setIndicator(getTabIndicator(this.mTabHost.getContext(), R.string.get_route_title_bar, R.drawable.ic_get_map_config)), GetRoute.class, null);
     }
 
+    /*
+        Prepares the parameters and geoprocessor for submitting a job if status = true.
+     */
     public void onDone(boolean status, int position, String username, String password)
     {
         if (status)
@@ -72,12 +74,15 @@ public class MainActivity
             }
             this.handler = new Handler();
             submitJobAndPolling(new Geoprocessor(this.URL, credentials), localArrayList, position);
-            System.out.println("wants to upload " + ((Graphic)Routes.getInstance().getRouteElements().getGraphics().get(position)).getAttributeValue("Description"));
             return;
         }
-        System.out.println("did not want to upload");
     }
 
+
+    /*
+        Submits the job and polls. If it succeeds it changes the status in the singleton Routes for the involved stop to visited
+        and notifies the RouteListAdapter that an row entry has changed. (so the image get changed to checked)
+     */
     public void submitJobAndPolling(final Geoprocessor gpTask, List<GPParameter> gpParameters, final int position)
     {
         try
@@ -90,34 +95,34 @@ public class MainActivity
                     @Override
                     public void run() {
                         try {
-                            GPJobResource gpJobResource1 = gpTask.checkJobStatus(jobID);
-                            boolean jobcomplete = false;
-                            GPJobResource.JobStatus jobStatus = gpJobResource1.getJobStatus();
+                            GPJobResource jobResource = gpTask.checkJobStatus(jobID);
+                            boolean jobComplete = false;
+                            GPJobResource.JobStatus jobStatus = jobResource.getJobStatus();
                                 switch (jobStatus) {
                                     case CANCELLED:
-                                        jobcomplete = true;
+                                        jobComplete = true;
                                         break;
                                     case CANCELLING:
                                         break;
                                     case DELETED:
-                                        jobcomplete = true;
+                                        jobComplete = true;
                                         break;
                                     case DELETING:
                                         break;
                                     case EXECUTING:
                                         break;
                                     case FAILED:
-                                        jobcomplete = true;
+                                        jobComplete = true;
                                         break;
                                     case NEW_JOB:
                                         break;
                                     case SUBMITTED:
                                         break;
                                     case SUCCEEDED:
-                                        jobcomplete = true;
+                                        jobComplete = true;
                                         break;
                                     case TIMED_OUT:
-                                        jobcomplete = true;
+                                        jobComplete = true;
                                         break;
                                     case WAITING:
                                         break;
@@ -126,17 +131,12 @@ public class MainActivity
                                 }
 
 
-                            if (jobcomplete) {
+                            if (jobComplete) {
                                 if (jobStatus == GPJobResource.JobStatus.SUCCEEDED) {
 
                                     Routes.getInstance().setVisited(position);
-                                    ((BaseAdapter)((RouteListFragment)MainActivity.this.getSupportFragmentManager().findFragmentByTag("tab2")).getListAdapter()).notifyDataSetChanged();
+                                    ((RouteListAdapter)((RouteListFragment)MainActivity.this.getSupportFragmentManager().findFragmentByTag("tab2")).getListAdapter()).notifyDataSetChanged();
 
-
-
-
-                                }else {
-                                    System.out.println("GP failed");
                                 }
 
 

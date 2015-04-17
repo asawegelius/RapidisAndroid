@@ -5,15 +5,15 @@ import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.esri.core.map.Graphic;
-import com.esri.core.tasks.ags.geoprocessing.GPFeatureRecordSetLayer;
-import java.util.ArrayList;
 
+/*
+    A custom list adapter (a bridge between the list view and its data)
+ */
 public class RouteListAdapter
         extends BaseAdapter
 {
@@ -65,7 +65,7 @@ public class RouteListAdapter
             textView.setText(graphic.getAttributeValue("Description").toString());
             imageButton.setTag(graphic);
             imageButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View paramAnonymousView) {
+                public void onClick(View view) {
                     RouteListAdapter.this.showNoticeDialog(position);
                 }
             });
