@@ -1,5 +1,6 @@
 package se.wegelius.routedisplayer;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
@@ -52,9 +53,13 @@ public class RouteListAdapter
 
     public View getView(final int position, View convertView, ViewGroup parent)
     {
-        View view = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.route_list_item_layout, parent, false);
-        TextView textView = (TextView)view.findViewById(R.id.row_route_name);
-        ImageButton imageButton = (ImageButton)view.findViewById(R.id.row_upload_route);
+        if(convertView == null) {
+            LayoutInflater mInflater = (LayoutInflater) context
+                    .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+            convertView = mInflater.inflate(R.layout.route_list_item_layout, parent, false);
+        }
+        TextView textView = (TextView)convertView.findViewById(R.id.row_route_name);
+        ImageButton imageButton = (ImageButton)convertView.findViewById(R.id.row_upload_route);
         if (getCount() > 0) {
             Graphic graphic = getStop(position);
             textView.setText(graphic.getAttributeValue("Description").toString());
@@ -71,7 +76,7 @@ public class RouteListAdapter
                 imageButton.setImageResource(R.drawable.ic_upload_blue);
             }
         }
-            return view;
+            return convertView;
     }
 
     public void showNoticeDialog(int paramInt)

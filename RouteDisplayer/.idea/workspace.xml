@@ -54,21 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RouteListAdapter.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="RouteListAdapter.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/se/wegelius/routedisplayer/RouteListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="1547">
-              <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Routes.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/se/wegelius/routedisplayer/Routes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4696707" vertical-offset="86" max-vertical-offset="1054">
-              <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.97053725" vertical-offset="528" max-vertical-offset="1394">
+              <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -1364,10 +1354,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/route_list_item_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/route_list_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/se/wegelius/routedisplayer/RouteListFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/se/wegelius/routedisplayer/RouteListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/se/wegelius/routedisplayer/MapViewFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/se/wegelius/routedisplayer/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/se/wegelius/routedisplayer/Routes.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/se/wegelius/routedisplayer/RouteListAdapter.java" />
       </list>
     </option>
   </component>
@@ -1907,8 +1897,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908913" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2400,18 +2390,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/se/wegelius/routedisplayer/RouteListAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/se/wegelius/routedisplayer/Routes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1326">
-          <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
+        <state vertical-scroll-proportion="-0.20797227" vertical-offset="477" max-vertical-offset="1054">
+          <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/se/wegelius/routedisplayer/Routes.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/se/wegelius/routedisplayer/RouteListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4696707" vertical-offset="86" max-vertical-offset="1054">
-          <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.97053725" vertical-offset="528" max-vertical-offset="1394">
+          <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
           <folding />
         </state>
       </provider>
